@@ -8,7 +8,7 @@ public class Application {
 
         Computer computer = initComputer();
         while (true) {
-            System.out.println("computer = " + computer.getValue());
+//            System.out.println("computer = " + computer.getValue());
             String userInput = InputView.inputRequest();
 
             if (!computer.checkValue(userInput)) {
