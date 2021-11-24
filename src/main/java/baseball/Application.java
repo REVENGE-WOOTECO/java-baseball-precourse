@@ -7,8 +7,8 @@ public class Application {
     public static void main(String[] args) {
 
         Computer computer = initComputer();
-
         while (true) {
+            System.out.println("computer = " + computer.getValue());
             String userInput = InputView.inputRequest();
 
             if (!computer.checkValue(userInput)) {
@@ -17,7 +17,7 @@ public class Application {
 
             PrintView.gameComplete();
 
-            if (InputView.reStartRequest()) {
+            if (InputView.endRequest()) {
                 break;
             }
             computer = initComputer();
@@ -25,6 +25,6 @@ public class Application {
     }
 
     private static Computer initComputer() {
-        return Computer.setValue();
+        return Computer.initialValue();
     }
 }

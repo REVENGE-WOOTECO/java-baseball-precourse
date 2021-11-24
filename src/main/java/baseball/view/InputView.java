@@ -58,9 +58,21 @@ public class InputView {
         return true;
     }
 
-    public static boolean reStartRequest() {
+    public static boolean endRequest() {
         // 검증 처리 추가
-        String restartValue = Console.readLine();
-        return restartValue.equals("2");
+        while (true) {
+            System.out.print("숫자를 입력해주세요 : ");
+            String restartValue = Console.readLine();
+
+            if (restartValue.equals("1")) {
+                return false;
+            }
+
+            if (restartValue.equals("2")) {
+                return true;
+            }
+
+            System.out.print("올바르지 않은 입력입니다. 다시 ");
+        }
     }
 }
