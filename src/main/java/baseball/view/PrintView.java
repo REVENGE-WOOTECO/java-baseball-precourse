@@ -1,10 +1,13 @@
 package baseball.view;
 
+import static baseball.Constant.RE_GAME;
+import static baseball.Constant.SUCCESS_AND_GAME_OVER;
+
 public class PrintView {
 
     public static void gameComplete() {
-        System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
-        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+        System.out.println(SUCCESS_AND_GAME_OVER);
+        System.out.println(RE_GAME);
     }
 
     public static void printResult(int ball, int strike) {
@@ -19,6 +22,7 @@ public class PrintView {
         if (sb.length() == 0) {
             sb.append("낫싱");
         }
+
         System.out.println(sb);
     }
 
