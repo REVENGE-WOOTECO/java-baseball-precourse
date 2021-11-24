@@ -28,10 +28,4 @@ class ComputerTest {
             });
         }
     }
-
-    @Test
-    void stringTest() {
-
-    }
-
 }

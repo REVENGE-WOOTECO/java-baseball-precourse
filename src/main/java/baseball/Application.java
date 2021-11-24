@@ -4,11 +4,11 @@ import baseball.view.InputView;
 import baseball.view.PrintView;
 
 public class Application {
-    public static void main(String[] args) {
 
-        Computer computer = initComputer();
+    public static void main(String[] args) {
+        Computer computer = Computer.initialValue();
+
         while (true) {
-//            System.out.println("computer = " + computer.getValue());
             String userInput = InputView.inputRequest();
 
             if (!computer.checkValue(userInput)) {
@@ -20,11 +20,7 @@ public class Application {
             if (InputView.endRequest()) {
                 break;
             }
-            computer = initComputer();
+            computer.resetValue();
         }
-    }
-
-    private static Computer initComputer() {
-        return Computer.initialValue();
     }
 }
