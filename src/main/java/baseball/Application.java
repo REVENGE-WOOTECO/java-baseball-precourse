@@ -1,6 +1,8 @@
 package baseball;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 import java.util.TreeSet;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -9,22 +11,12 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Application {
 	public static void main(String[] args) {
 		Application application = new Application();
-		ArrayList<Integer> answerNumber = application.makeAnswerNumber();
-		System.out.println("정답숫자: " + answerNumber);
 
 		while (true) {
-			System.out.print("숫자를 입력해주세요: ");
-			String inputNumber = Console.readLine();
-			boolean isException = application.handleException(inputNumber);
+			ArrayList<Integer> answerNumber = application.makeAnswerNumber();
+			System.out.println("정답숫자: " + answerNumber);
 
-			if (isException) {
-				//예외처리
-				throw new IllegalArgumentException();
-			} else {
-				//힌트출력
-				String hint = application.hint(answerNumber, inputNumber);
-				System.out.println(hint);
-			}
+			String inputNumber = application.inputNumber();
 		}
 	}
 
@@ -51,6 +43,24 @@ public class Application {
 		}
 
 		return answerNumber;
+	}
+
+	/**
+	 * 사용자에게 숫자 입력받기
+	 *
+	 * @return
+	 */
+	public String inputNumber() {
+		System.out.print("숫자를 입력해주세요: ");
+		String inputNumber = Console.readLine();
+		boolean isException = handleException(inputNumber);
+
+		if (isException) {
+			//예외처리
+			throw new IllegalArgumentException();
+		}
+
+		return inputNumber;
 	}
 
 	/**
