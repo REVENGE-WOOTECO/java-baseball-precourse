@@ -31,23 +31,6 @@ public class Application {
 	}
 
 	/**
-	 * 게임을 새로 시작할지 종료할지 입력받기
-	 * true: 새로시작
-	 *
-	 */
-	public boolean isStartOver() {
-		System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요");
-		String inputNumber = Console.readLine();
-		if (inputNumber.equals("1")) {
-			return true;
-		} else if (inputNumber.equals("2")) {
-			return false;
-		} else {
-			throw new IllegalArgumentException();
-		}
-	}
-
-	/**
 	 * 서로 다른 3개의 난수 구하기
 	 *
 	 * @return
@@ -80,6 +63,7 @@ public class Application {
 	public String inputNumber() {
 		System.out.print("숫자를 입력해주세요: ");
 		String inputNumber = Console.readLine();
+
 		boolean isException = handleException(inputNumber);
 
 		if (isException) {
@@ -192,5 +176,22 @@ public class Application {
 		}
 
 		return count;
+	}
+
+	/**
+	 * 게임을 새로 시작할지 종료할지 입력받기
+	 * true: 새로시작
+	 *
+	 */
+	public boolean isStartOver() {
+		System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요");
+		String inputNumber = Console.readLine();
+		if (inputNumber.equals("1")) {
+			return true;
+		} else if (inputNumber.equals("2")) {
+			return false;
+		} else {
+			throw new IllegalArgumentException();
+		}
 	}
 }
