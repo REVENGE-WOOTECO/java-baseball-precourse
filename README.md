@@ -8,10 +8,11 @@
 ## ✉️ 미션 제출 방법
 
 - 미션 구현을 완료한 후 GitHub을 통해 제출해야 한다.
-  - GitHub을 활용한 제출 방법은 [프리코스 과제 제출 문서](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 를 참고해 제출한다.
+    - GitHub을 활용한 제출 방법은 [프리코스 과제 제출 문서](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 를 참고해
+      제출한다.
 - GitHub에 미션을 제출한 후 [우아한테크코스 지원 플랫폼](https://apply.techcourse.co.kr) 에 접속하여 프리코스 과제를 제출한다.
-  - 자세한 방법은 [링크](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse#제출-가이드) 를 참고한다.
-  - **Pull Request만 보내고, 지원 플랫폼에서 과제를 제출하지 않으면 최종 제출하지 않은 것으로 처리되니 주의한다.**
+    - 자세한 방법은 [링크](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse#제출-가이드) 를 참고한다.
+    - **Pull Request만 보내고, 지원 플랫폼에서 과제를 제출하지 않으면 최종 제출하지 않은 것으로 처리되니 주의한다.**
 
 ## ✔️ 과제 제출 전 체크리스트 - 0점 방지
 
@@ -95,18 +96,18 @@
 - 프로그램을 실행하는 시작점은 `Application`의 `main()`이다.
 - JDK 8 버전에서 실행 가능해야 한다. **JDK 8에서 정상 동작하지 않을 경우 0점 처리**한다.
 - 자바 코드 컨벤션을 지키면서 프로그래밍한다.
-  - https://naver.github.io/hackday-conventions-java
+    - https://naver.github.io/hackday-conventions-java
 - indent(인덴트, 들여쓰기) depth를 3이 넘지 않도록 구현한다. 2까지만 허용한다.
-  - 예를 들어 while문 안에 if문이 있으면 들여쓰기는 2이다.
-  - 힌트: indent(인덴트, 들여쓰기) depth를 줄이는 좋은 방법은 함수(또는 메소드)를 분리하면 된다.
+    - 예를 들어 while문 안에 if문이 있으면 들여쓰기는 2이다.
+    - 힌트: indent(인덴트, 들여쓰기) depth를 줄이는 좋은 방법은 함수(또는 메소드)를 분리하면 된다.
 - 3항 연산자를 쓰지 않는다.
 - 함수(또는 메소드)가 한 가지 일만 하도록 최대한 작게 만들어라.
 
 ### 프로그래밍 요구사항 - Randoms, Console
 
 - JDK에서 기본 제공하는 Random, Scanner API 대신 `camp.nextstep.edu.missionutils`에서 제공하는 `Randoms`, `Console` API를 활용해 구현해야 한다.
-  - Random 값 추출은 `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()`를 활용한다.
-  - 사용자가 입력하는 값은 `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용한다.
+    - Random 값 추출은 `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()`를 활용한다.
+    - 사용자가 입력하는 값은 `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용한다.
 - 프로그램 구현을 완료했을 때 `src/test/java` 디렉터리의 `ApplicationTest`에 있는 모든 테스트 케이스가 성공해야 한다. **테스트가 실패할 경우 0점 처리한다.**
 
 <br>
@@ -124,6 +125,19 @@
 <br>
 
 ---
+---
+
+## 구현 기능 목록
+
+1. 컴퓨터의 3자리의 수 초기화 후 저장
+2. 사용자의 입력값 저장
+3. 사용자의 입력값 예외 처리
+   1. 숫자가 아닌 문자 입력 시
+   2. 입력 3자리 초과시
+   3. 중복된 숫자 입력 시
+4. 사용자의 입력값과 컴퓨터의 수 비교 알고리즘
+5. 볼, 스트라이크 갯수에 따른 출력
+6. 정답 후 재시작/종료 구분 처리
 
 ## 📝 License
 
