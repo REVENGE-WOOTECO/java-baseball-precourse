@@ -30,7 +30,7 @@ public class Util {
         return Arrays.stream(input.split("")).map(Integer::parseInt).collect(Collectors.toList());
     }
 
-    void validate(String input) {
+    private void validate(String input) {
         if (!validateOneToNine(input)) {
             throw new IllegalArgumentException();
         }
@@ -42,17 +42,17 @@ public class Util {
         }
     }
 
-    boolean validateDuplicate(String input) {
+    private boolean validateDuplicate(String input) throws IllegalArgumentException {
         return input.charAt(0) != input.charAt(1)
                 && input.charAt(0) != input.charAt(2)
                 && input.charAt(1) != input.charAt(2);
     }
 
-    boolean validateRange(String input) {
-        return input.length() <= 3 && input.length() >= 1;
+    private boolean validateRange(String input) {
+        return input.length() == 3;
     }
 
-    boolean validateOneToNine(String input) {
+    private boolean validateOneToNine(String input) {
         String pattern = "^[1-9]*$";
         return Pattern.matches(pattern, input);
     }
