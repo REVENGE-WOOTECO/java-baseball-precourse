@@ -14,7 +14,6 @@ public class Application {
 
 		while (true) {
 			ArrayList<Integer> answerNumber = application.makeAnswerNumber();
-			System.out.println("정답숫자: " + answerNumber);
 
 			boolean isAnswer;
 			do {
@@ -22,7 +21,7 @@ public class Application {
 				isAnswer = application.compareNumber(answerNumber, inputNumber);
 			} while (isAnswer == false);
 
-			System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임종료");
+			System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
 
 			if (application.isStartOver() == false) {
 				break;
