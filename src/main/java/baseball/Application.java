@@ -17,6 +17,33 @@ public class Application {
 			System.out.println("정답숫자: " + answerNumber);
 
 			String inputNumber = application.inputNumber();
+
+			boolean isAnswer;
+			do {
+				isAnswer = application.compareNumber(answerNumber,inputNumber);
+			}while(isAnswer == false);
+			System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임종료");
+
+			if(application.isStartOver() == false){
+				break;
+			}
+		}
+	}
+
+	/**
+	 * 게임을 새로 시작할지 종료할지 입력받기
+	 * true: 새로시작
+	 *
+	 */
+	public boolean isStartOver(){
+		System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요");
+		String inputNumber = Console.readLine();
+		if(inputNumber.equals("1")){
+			return true;
+		}else if(inputNumber.equals("2")){
+			return false;
+		}else{
+			throw new IllegalArgumentException();
 		}
 	}
 
@@ -81,6 +108,20 @@ public class Application {
 		}
 
 		return inputNumberArray.size() != 3;
+	}
+
+	/**
+	  * 사용자가 입력한 숫자와 렌덤숫자 비교
+	  *
+	  * @param answerNumber
+	  */
+	public boolean compareNumber(ArrayList<Integer> answerNumber, String inputNumber) {
+		while (true) {
+			String answer = hint(answerNumber, inputNumber);
+			System.out.println(answer);
+
+			return answer.equals("3스트라이크");
+		}
 	}
 
 	/**
