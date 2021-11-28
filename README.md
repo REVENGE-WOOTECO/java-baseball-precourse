@@ -125,6 +125,24 @@
 
 ---
 
+## 🔧 야구게임 기능 요구 사항 정리
+
+### 기능
+- 1부터 9까지 서로 다른 임의의 수 3개를 선택한다.
+- 입력의 단위는 3자리이다.
+- 볼, 스트라이크 순서로 개수를 표시한다. 둘 중 하나에만 해당하면 해당 항목만 표시한다.
+- 하나도 없을 경우 낫싱을 출력한다.
+- 3개를 모두 맞칠 경우, 게임 종료를 하고 재시작 / 종료를 구분하는 1, 2중 하나의 수를 선택한다.
+- Console API를 사용해서 값을 입력받는다. pickNumberInRange()을 활용한다.
+- Ramdom API를 사용해서 랜덤 값을 추출한다. readLine()을 활용한다.
+
+### 예외
+- 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨다.
+
+
+
+---
+
 ## 📝 License
 
 This project is [MIT](https://github.com/woowacourse/java-baseball-precourse/blob/master/LICENSE) licensed.
