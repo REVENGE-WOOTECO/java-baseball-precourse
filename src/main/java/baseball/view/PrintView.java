@@ -4,10 +4,6 @@ import static baseball.Constant.*;
 
 public class PrintView {
 
-	public static void gameComplete() {
-		System.out.println(SUCCESS_AND_GAME_OVER);
-	}
-
 	public static boolean finishRequest() {
 		System.out.println(SUCCESS_AND_GAME_OVER);
 		return InputView.endRequest();
