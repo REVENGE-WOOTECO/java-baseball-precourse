@@ -5,7 +5,7 @@ import static utils.Constant.NOTHING_COUNT;
 import static utils.Message.*;
 
 public class MessagePrint {
-    public String getResultMessage(int strikeCount, int ballCount) {
+    public void getResultMessage(int strikeCount, int ballCount) {
         String resultMessage = "";
         if (strikeCount == ANSWER_COUNT) {
             resultMessage = strikeCount + STRIKE_MESSAGE + "\n" + CORRECT_MESSAGE;
@@ -19,6 +19,14 @@ public class MessagePrint {
             resultMessage = strikeCount + STRIKE_MESSAGE;
         }
 
-        return resultMessage;
+        System.out.println(resultMessage);
+    }
+
+    public void requestInput() {
+        System.out.print(REQUEST_INPUT_MESSAGE);
+    }
+
+    public void restartRequest() {
+        System.out.println(PROGRESS_MESSAGE);
     }
 }
