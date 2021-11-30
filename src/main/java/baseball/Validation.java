@@ -2,7 +2,7 @@ package baseball;
 
 import java.util.HashSet;
 
-import static baseball.Application.*;
+import static utils.Constant.*;
 
 public class Validation {
     public boolean validateInputNumber(String input) {
@@ -50,8 +50,8 @@ public class Validation {
     public boolean isDuplicate(String input) {
         HashSet<Character> duplicateCheck = new HashSet<>();
 
-        for(char c : input.toCharArray()) {
-            if(!duplicateCheck.contains(c)){
+        for (char c : input.toCharArray()) {
+            if (!duplicateCheck.contains(c)){
                 duplicateCheck.add(c);
             } else {
                 return true;

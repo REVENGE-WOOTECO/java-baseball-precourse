@@ -1,7 +1,7 @@
 package baseball;
 
-import static baseball.Application.ANSWER_COUNT;
-import static baseball.Application.NOTHING_COUNT;
+import static utils.Constant.ANSWER_COUNT;
+import static utils.Constant.NOTHING_COUNT;
 import static utils.Message.*;
 
 public class MessagePrint {

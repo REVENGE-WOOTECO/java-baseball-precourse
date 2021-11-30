@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.HashSet;
 
-import static baseball.Application.*;
+import static utils.Constant.*;
 
 public class NumberGenerator {
 
