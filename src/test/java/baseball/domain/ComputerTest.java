@@ -10,9 +10,9 @@ class ComputerTest {
 	@Test
 	@DisplayName("랜덤 숫자를 추출 후 1000회 검증")
 	void extractRandomValue() {
-		for (int i = 0; i < 1000; i++) {
+		for (int i = 0; i < 1_000; i++) {
 			Assertions.assertDoesNotThrow(() -> {
-				String randomValue = Computer.getRandomValue();
+				String randomValue = Computer.makeRandomValue();
 				boolean[] chk = new boolean[3];
 				for (int j = 0; j < 3; j++) {
 					chk[j] = true;

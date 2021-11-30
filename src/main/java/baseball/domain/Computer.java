@@ -14,11 +14,11 @@ public class Computer {
 	}
 
 	public static Computer initialValue() {
-		return new Computer(getRandomValue());
+		return new Computer(makeRandomValue());
 	}
 
 	public void resetValue() {
-		value = getRandomValue();
+		value = makeRandomValue();
 	}
 
 	public boolean checkValue(String check) {
@@ -31,7 +31,7 @@ public class Computer {
 		return false;
 	}
 
-	public static String getRandomValue() {
+	public static String makeRandomValue() {
 		StringBuilder sb = new StringBuilder();
 
 		while (sb.length() != MAX_BALL_COUNT) {
