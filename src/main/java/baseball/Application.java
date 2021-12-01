@@ -87,7 +87,7 @@ public class Application {
 			answer += ballCount + "볼";
 		}
 		if (strikeCount != 0) {
-			if (answer.equals("") == false) {
+			if (answer.isEmpty() == false) {
 				answer += " ";
 			}
 			answer += strikeCount + "스트라이크";
