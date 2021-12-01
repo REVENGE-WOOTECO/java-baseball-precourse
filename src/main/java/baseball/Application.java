@@ -2,6 +2,7 @@ package baseball;
 
 import java.util.ArrayList;
 import java.util.TreeSet;
+import java.util.stream.Stream;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
@@ -15,8 +16,7 @@ public class Application {
 
 			boolean isAnswer;
 			do {
-				String inputNumber = application.inputNumber();
-				application.handleException(inputNumber);
+				int inputNumber = application.inputNumber();
 
 				isAnswer = application.compareNumber(answerNumber, inputNumber);
 			} while (isAnswer == false);
@@ -24,7 +24,7 @@ public class Application {
 			System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
 
 			String inputStartOver = application.getInputStartOver();
-			if(application.isStartOver(inputStartOver) == false){
+			if (application.isStartOver(inputStartOver) == false) {
 				break;
 			}
 		}
@@ -45,14 +45,16 @@ public class Application {
 		return answerNumber;
 	}
 
-	public String inputNumber() {
+	public int inputNumber() {
 		System.out.print("숫자를 입력해주세요: ");
 		String inputNumber = Console.readLine();
 
-		return inputNumber;
+		handleException(inputNumber);
+
+		return Integer.parseInt(inputNumber);
 	}
 
-	public void handleException(String inputNumber){
+	public void handleException(String inputNumber) {
 		boolean isException = hasException(inputNumber);
 		if (isException) {
 			throw new IllegalArgumentException();
@@ -72,14 +74,14 @@ public class Application {
 		return inputNumberArray.size() != 3;
 	}
 
-	public boolean compareNumber(ArrayList<Integer> answerNumber, String inputNumber) {
+	public boolean compareNumber(ArrayList<Integer> answerNumber, int inputNumber) {
 		String answer = hint(answerNumber, inputNumber);
 		System.out.println(answer);
 
 		return answer.equals("3스트라이크");
 	}
 
-	public String hint(ArrayList<Integer> answerNumber, String inputNumber) {
+	public String hint(ArrayList<Integer> answerNumber, int inputNumber) {
 		int ballCount = ballCount(answerNumber, inputNumber);
 		int strikeCount = strikeCount(answerNumber, inputNumber);
 
@@ -102,13 +104,13 @@ public class Application {
 		return answer;
 	}
 
-	public int ballCount(ArrayList<Integer> answerNumber, String inputNumber) {
-		String[] inputNumberArray = inputNumber.split("");
+	public int ballCount(ArrayList<Integer> answerNumber, int inputNumber) {
+		int[] inputNumberArray = Stream.of(String.valueOf(inputNumber).split("")).mapToInt(Integer::parseInt).toArray();
 		int count = 0;
 
 		for (int j = 0; j < inputNumberArray.length; j++) {
-			if (answerNumber.contains(Integer.parseInt(inputNumberArray[j]))
-				&& answerNumber.get(j) != Integer.parseInt(inputNumberArray[j])) {
+			if (answerNumber.contains(inputNumberArray[j])
+				&& answerNumber.get(j) != inputNumberArray[j]) {
 				count++;
 			}
 		}
@@ -116,13 +118,13 @@ public class Application {
 		return count;
 	}
 
-	public int strikeCount(ArrayList<Integer> answerNumber, String inputNumber) {
-		String[] inputNumberArray = inputNumber.split("");
+	public int strikeCount(ArrayList<Integer> answerNumber, int inputNumber) {
+		int[] inputNumberArray = Stream.of(String.valueOf(inputNumber).split("")).mapToInt(Integer::parseInt).toArray();
 
 		int count = 0;
 
 		for (int i = 0; i < inputNumberArray.length; i++) {
-			if (answerNumber.indexOf(Integer.parseInt(inputNumberArray[i])) == i) {
+			if (answerNumber.indexOf(inputNumberArray[i]) == i) {
 				count++;
 			}
 		}
@@ -130,7 +132,7 @@ public class Application {
 		return count;
 	}
 
-	public String getInputStartOver(){
+	public String getInputStartOver() {
 		System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요");
 		return Console.readLine();
 	}
