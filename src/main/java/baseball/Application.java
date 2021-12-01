@@ -36,9 +36,7 @@ public class Application {
 		while (answerNumber.size() < 3) {
 			int randomNumber = Randoms.pickNumberInRange(1, 9);
 
-			if (answerNumber.contains(randomNumber)) {
-				continue;
-			} else {
+			if (answerNumber.contains(randomNumber) == false) {
 				answerNumber.add(randomNumber);
 			}
 
