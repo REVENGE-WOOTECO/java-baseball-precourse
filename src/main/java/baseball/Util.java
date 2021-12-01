@@ -5,7 +5,8 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.*;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
 
 public class Util {
 
@@ -30,7 +31,7 @@ public class Util {
         validate(input);
         return Arrays.stream(input.split(DELIMITER))
                 .map(Integer::parseInt)
-                .collect(Collectors.toList());
+                .collect(toList());
     }
 
     private void validate(String input) {
