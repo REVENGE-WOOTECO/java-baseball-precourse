@@ -34,7 +34,7 @@
 + [x] while(true) 안의 if break 조건 while 조건문으로 이동
 + [x] else 지양하기
   + else블록 없애는 방법: 메소드 분리, 추상화 ...
-+ [ ] handleException 메소드명 수정
++ [x] handleException 메소드명 수정
   + 예외 핸들링은 inputNumber에서 하고있다
   + 숫자값을 검증하여 알맞는지 확인해주는 역할에 어울리는 네이밍으로 수정
 + [ ] 매직넘버 사용하기

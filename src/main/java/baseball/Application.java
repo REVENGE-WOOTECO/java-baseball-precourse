@@ -1,8 +1,6 @@
 package baseball;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Scanner;
 import java.util.TreeSet;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -49,7 +47,7 @@ public class Application {
 		System.out.print("숫자를 입력해주세요: ");
 		String inputNumber = Console.readLine();
 
-		boolean isException = handleException(inputNumber);
+		boolean isException = hasException(inputNumber);
 
 		if (isException) {
 			//예외처리
@@ -59,7 +57,7 @@ public class Application {
 		return inputNumber;
 	}
 
-	public boolean handleException(String inputNumber) {
+	public boolean hasException(String inputNumber) {
 		TreeSet<Integer> inputNumberArray = new TreeSet<>();
 		char[] inputNumberSplitArray = inputNumber.toCharArray();
 
