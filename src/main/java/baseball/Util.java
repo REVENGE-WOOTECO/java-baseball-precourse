@@ -12,6 +12,7 @@ public class Util {
     private static final int BASE_COUNT = 3;
     private static final String PATTERN_REGEX = "^[1-9]*$";
     private static final Pattern PATTERN = Pattern.compile(PATTERN_REGEX);
+    private static final String DELIMITER = "";
 
     public List<Integer> initComputer() {
         List<Integer> computer = new ArrayList<>(BASE_COUNT);
@@ -27,7 +28,9 @@ public class Util {
     public List<Integer> input() {
         String input = Console.readLine();
         validate(input);
-        return Arrays.stream(input.split("")).map(Integer::parseInt).collect(Collectors.toList());
+        return Arrays.stream(input.split(DELIMITER))
+                .map(Integer::parseInt)
+                .collect(Collectors.toList());
     }
 
     private void validate(String input) {

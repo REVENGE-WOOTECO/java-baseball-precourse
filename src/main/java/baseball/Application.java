@@ -15,7 +15,7 @@ public class Application {
                 computer = util.initComputer();
             } else if (result.equals("2")) {
                 return;
-            } else if (!result.equals("")) {
+            } else if (!result.isEmpty()) {
                 throw new IllegalArgumentException();
             }
         }
