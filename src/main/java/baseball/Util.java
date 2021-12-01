@@ -10,6 +10,8 @@ import java.util.stream.Collectors;
 public class Util {
 
     private static final int BASE_COUNT = 3;
+    private static final String PATTERN_REGEX = "^[1-9]*$";
+    private static final Pattern PATTERN = Pattern.compile(PATTERN_REGEX);
 
     public List<Integer> initComputer() {
         List<Integer> computer = new ArrayList<>(BASE_COUNT);
@@ -51,8 +53,7 @@ public class Util {
     }
 
     private void validateOneToNine(String input) {
-        String pattern = "^[1-9]*$";
-        if (!Pattern.matches(pattern, input)) {
+        if (!PATTERN.matcher(input).matches()) {
             throw new IllegalArgumentException();
         }
     }
