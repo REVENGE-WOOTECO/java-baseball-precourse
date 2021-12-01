@@ -33,7 +33,7 @@ public class Application {
 	public ArrayList<Integer> makeAnswerNumber() {
 		ArrayList<Integer> answerNumber = new ArrayList<>();
 
-		while (true) {
+		while (answerNumber.size() < 3) {
 			int randomNumber = Randoms.pickNumberInRange(1, 9);
 
 			if (answerNumber.contains(randomNumber)) {
@@ -42,9 +42,6 @@ public class Application {
 				answerNumber.add(randomNumber);
 			}
 
-			if (answerNumber.size() == 3) {
-				break;
-			}
 		}
 
 		return answerNumber;

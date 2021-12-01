@@ -31,7 +31,7 @@
     + 상위 인터페이스 타입으로 할당하는것의 장점은?
     + ArrayList에만 구현되어있는 메소드를 사용하지 못할때는 어떻게 하는가?
 + [x] isStartOver()메소드 분리하기(하나의 역할만 하도록)
-+ [ ] while(true) 안의 if break 조건 while 조건문으로 이동
++ [x] while(true) 안의 if break 조건 while 조건문으로 이동
 + [ ] else 지양하기
   + else블록 없애는 방법: 메소드 분리, 추상화 ...
 + [ ] handleException 메소드명 수정
