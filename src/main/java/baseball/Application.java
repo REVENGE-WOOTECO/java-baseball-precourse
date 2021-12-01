@@ -29,11 +29,6 @@ public class Application {
 		}
 	}
 
-	/**
-	 * 서로 다른 3개의 난수 구하기
-	 *
-	 * @return
-	 */
 	public ArrayList<Integer> makeAnswerNumber() {
 		ArrayList<Integer> answerNumber = new ArrayList<>();
 
@@ -54,11 +49,6 @@ public class Application {
 		return answerNumber;
 	}
 
-	/**
-	 * 사용자에게 숫자 입력받기
-	 *
-	 * @return
-	 */
 	public String inputNumber() {
 		System.out.print("숫자를 입력해주세요: ");
 		String inputNumber = Console.readLine();
@@ -73,13 +63,6 @@ public class Application {
 		return inputNumber;
 	}
 
-	/**
-	 * 사용자가 입력한 값 유효성체크(예외처리)
-	 * 숫자가 아닌경우, 3자리가 아닌 경우, 숫자가 중복되는 경우, 0이 포함된 경우
-	 *
-	 * @param inputNumber
-	 * @return
-	 */
 	public boolean handleException(String inputNumber) {
 		TreeSet<Integer> inputNumberArray = new TreeSet<>();
 		char[] inputNumberSplitArray = inputNumber.toCharArray();
@@ -93,11 +76,6 @@ public class Application {
 		return inputNumberArray.size() != 3;
 	}
 
-	/**
-	 * 사용자가 입력한 숫자와 렌덤숫자 비교
-	 *
-	 * @param answerNumber
-	 */
 	public boolean compareNumber(ArrayList<Integer> answerNumber, String inputNumber) {
 		String answer = hint(answerNumber, inputNumber);
 		System.out.println(answer);
@@ -105,13 +83,6 @@ public class Application {
 		return answer.equals("3스트라이크");
 	}
 
-	/**
-	 * 힌트 제공
-	 *
-	 * @param answerNumber
-	 * @param inputNumber
-	 * @return
-	 */
 	public String hint(ArrayList<Integer> answerNumber, String inputNumber) {
 		int ballCount = ballCount(answerNumber, inputNumber);
 		int strikeCount = strikeCount(answerNumber, inputNumber);
@@ -135,13 +106,6 @@ public class Application {
 		return answer;
 	}
 
-	/**
-	 * 볼 갯수 구하기
-	 *
-	 * @param answerNumber
-	 * @param inputNumber
-	 * @return
-	 */
 	public int ballCount(ArrayList<Integer> answerNumber, String inputNumber) {
 		String[] inputNumberArray = inputNumber.split("");
 		int count = 0;
@@ -156,13 +120,6 @@ public class Application {
 		return count;
 	}
 
-	/**
-	 * 스트라이크 갯수 구하기
-	 *
-	 * @param answerNumber
-	 * @param inputNumber
-	 * @return
-	 */
 	public int strikeCount(ArrayList<Integer> answerNumber, String inputNumber) {
 		String[] inputNumberArray = inputNumber.split("");
 
@@ -177,11 +134,6 @@ public class Application {
 		return count;
 	}
 
-	/**
-	 * 게임을 새로 시작할지 종료할지 입력받기
-	 * true: 새로시작
-	 *
-	 */
 	public boolean isStartOver() {
 		System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요");
 		String inputNumber = Console.readLine();
