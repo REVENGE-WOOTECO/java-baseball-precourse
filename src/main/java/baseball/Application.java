@@ -16,6 +16,8 @@ public class Application {
 			boolean isAnswer;
 			do {
 				String inputNumber = application.inputNumber();
+				application.handleException(inputNumber);
+
 				isAnswer = application.compareNumber(answerNumber, inputNumber);
 			} while (isAnswer == false);
 
@@ -47,14 +49,14 @@ public class Application {
 		System.out.print("숫자를 입력해주세요: ");
 		String inputNumber = Console.readLine();
 
-		boolean isException = hasException(inputNumber);
+		return inputNumber;
+	}
 
+	public void handleException(String inputNumber){
+		boolean isException = hasException(inputNumber);
 		if (isException) {
-			//예외처리
 			throw new IllegalArgumentException();
 		}
-
-		return inputNumber;
 	}
 
 	public boolean hasException(String inputNumber) {
