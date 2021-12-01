@@ -2,7 +2,9 @@ package baseball;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Game {
 
@@ -16,18 +18,11 @@ public class Game {
     }
 
     public String play(List<Integer> input, List<Integer> computer) {
-        int strike = 0;
-        int ball = 0;
-        for (int pos = 0; pos < util.getBaseCount(); pos++) {
-            String judgeResult = judgeResult(pos, input.get(pos), computer);
-            if (judgeResult.equals(STRIKE)) {
-                strike++;
-            } else if (judgeResult.equals(BALL)) {
-                ball++;
-            }
-        }
-        printResult(strike, ball);
-        if (hasSuccess(strike)) {
+        Map<String, Integer> pointMap = calculatePoint(input, computer);
+        int strikeCount = pointMap.get(STRIKE);
+        int ballCount = pointMap.get(BALL);
+        printPoint(strikeCount, ballCount);
+        if (hasSuccess(strikeCount)) {
             return Console.readLine();
         }
         return "";
@@ -43,13 +38,13 @@ public class Game {
     }
 
 
-    private void printResult(int strike, int ball) {
-        if (strike != 0 && ball != 0) {
-            System.out.println(ball + "볼 " + strike + "스트라이크");
-        } else if (strike != 0) {
-            System.out.println(strike + "스트라이크");
-        } else if (ball != 0) {
-            System.out.println(ball + "볼");
+    private void printPoint(int strikeCount, int ballCount) {
+        if (strikeCount != 0 && ballCount != 0) {
+            System.out.println(ballCount + "볼 " + strikeCount + "스트라이크");
+        } else if (strikeCount != 0) {
+            System.out.println(strikeCount + "스트라이크");
+        } else if (ballCount != 0) {
+            System.out.println(ballCount + "볼");
         } else {
             System.out.println("낫싱");
         }
@@ -62,5 +57,22 @@ public class Game {
             return BALL;
         }
         return NOTHING;
+    }
+
+    private Map<String, Integer> calculatePoint(List<Integer> input, List<Integer> computer) {
+        Map<String, Integer> pointMap = new HashMap<>();
+        Integer strikeCount = 0;
+        Integer ballCount = 0;
+        for (int pos = 0; pos < util.getBaseCount(); pos++) {
+            String judgeResult = judgeResult(pos, input.get(pos), computer);
+            if (judgeResult.equals(STRIKE)) {
+                strikeCount++;
+            } else if (judgeResult.equals(BALL)) {
+                ballCount++;
+            }
+        }
+        pointMap.put(STRIKE, strikeCount);
+        pointMap.put(BALL, ballCount);
+        return pointMap;
     }
 }
