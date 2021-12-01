@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 public class Util {
 
-    public static final int BASE_COUNT = 3;
+    private static final int BASE_COUNT = 3;
 
     public List<Integer> initComputer() {
         List<Integer> computer = new ArrayList<>(BASE_COUNT);
@@ -55,5 +55,9 @@ public class Util {
         if (!Pattern.matches(pattern, input)) {
             throw new IllegalArgumentException();
         }
+    }
+
+    public int getBaseCount() {
+        return BASE_COUNT;
     }
 }

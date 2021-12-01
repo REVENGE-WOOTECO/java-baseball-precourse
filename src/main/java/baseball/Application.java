@@ -5,8 +5,8 @@ import java.util.List;
 public class Application {
 
     public static void main(String[] args) {
-        Game game = new Game();
         Util util = new Util();
+        Game game = new Game(util);
         List<Integer> computer = util.initComputer();
         while (true) {
             List<Integer> input = util.input();

@@ -4,15 +4,19 @@ import camp.nextstep.edu.missionutils.Console;
 
 import java.util.List;
 
-import static baseball.Util.BASE_COUNT;
-
 public class Game {
+
+    private final Util util;
+
+    public Game(Util util) {
+        this.util = util;
+    }
 
     String play(List<Integer> input, List<Integer> computer) {
         String result = "";
         int strike = 0;
         int ball = 0;
-        for (int pos = 0; pos < BASE_COUNT; pos++) {
+        for (int pos = 0; pos < util.getBaseCount(); pos++) {
             if (isStrike(pos, input.get(pos), computer)) {
                 strike++;
             } else if (isBall(input.get(pos), computer)) {
