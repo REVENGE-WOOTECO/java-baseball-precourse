@@ -3,9 +3,7 @@ package baseball;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
@@ -36,16 +34,18 @@ public class Util {
         validateDuplicate(input);
     }
 
-    private void validateDuplicate(String input) throws IllegalArgumentException {
-        if (input.charAt(0) != input.charAt(1)
-                && input.charAt(0) != input.charAt(2)
-                && input.charAt(1) != input.charAt(2)) {
+    private void validateDuplicate(String input) {
+        Set<Character> validSet = new HashSet<>();
+        for (int i = 0; i < input.length(); i++) {
+            validSet.add(input.charAt(i));
+        }
+        if (validSet.size() != input.length()) {
             throw new IllegalArgumentException();
         }
     }
 
     private void validateRange(String input) {
-        if (input.length() != BASE_COUNT) {
+        if (BASE_COUNT != input.length()) {
             throw new IllegalArgumentException();
         }
     }
