@@ -23,7 +23,8 @@ public class Application {
 
 			System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
 
-			if (application.isStartOver() == false) {
+			String inputStartOver = application.getInputStartOver();
+			if(application.isStartOver(inputStartOver) == false){
 				break;
 			}
 		}
@@ -134,9 +135,12 @@ public class Application {
 		return count;
 	}
 
-	public boolean isStartOver() {
+	public String getInputStartOver(){
 		System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요");
-		String inputNumber = Console.readLine();
+		return Console.readLine();
+	}
+
+	public boolean isStartOver(String inputNumber) {
 		if (inputNumber.equals("1")) {
 			return true;
 		} else if (inputNumber.equals("2")) {
