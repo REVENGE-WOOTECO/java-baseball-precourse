@@ -13,7 +13,7 @@ public class Util {
 
     public static final int BASE_COUNT = 3;
 
-    List<Integer> initComputer() {
+    public List<Integer> initComputer() {
         List<Integer> computer = new ArrayList<>(BASE_COUNT);
         while (computer.size() < BASE_COUNT) {
             int randomNumber = Randoms.pickNumberInRange(1, 9);
@@ -24,36 +24,36 @@ public class Util {
         return computer;
     }
 
-    List<Integer> input() {
+    public List<Integer> input() {
         String input = Console.readLine();
         validate(input);
         return Arrays.stream(input.split("")).map(Integer::parseInt).collect(Collectors.toList());
     }
 
     private void validate(String input) {
-        if (!validateOneToNine(input)) {
-            throw new IllegalArgumentException();
-        }
-        if (!validateRange(input)) {
-            throw new IllegalArgumentException();
-        }
-        if (!validateDuplicate(input)) {
-            throw new IllegalArgumentException();
-        }
+        validateOneToNine(input);
+        validateRange(input);
+        validateDuplicate(input);
     }
 
-    private boolean validateDuplicate(String input) throws IllegalArgumentException {
-        return input.charAt(0) != input.charAt(1)
+    private void validateDuplicate(String input) throws IllegalArgumentException {
+        if (input.charAt(0) != input.charAt(1)
                 && input.charAt(0) != input.charAt(2)
-                && input.charAt(1) != input.charAt(2);
+                && input.charAt(1) != input.charAt(2)) {
+            throw new IllegalArgumentException();
+        }
     }
 
-    private boolean validateRange(String input) {
-        return input.length() == 3;
+    private void validateRange(String input) {
+        if (input.length() != BASE_COUNT) {
+            throw new IllegalArgumentException();
+        }
     }
 
-    private boolean validateOneToNine(String input) {
+    private void validateOneToNine(String input) {
         String pattern = "^[1-9]*$";
-        return Pattern.matches(pattern, input);
+        if (!Pattern.matches(pattern, input)) {
+            throw new IllegalArgumentException();
+        }
     }
 }
