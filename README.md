@@ -43,6 +43,7 @@
   + [매직넘버 포스팅](https://hoonmaro.tistory.com/44)
 + [x] answer.equale("") -> .isEmpty() 메소드 사용하기
 + [ ] 메소드에서 inputNumber를 받을 때 String 이 아니라 int로 받기(버그가능성)
++ [ ] inputNumber()메소드 분리하기
 
 ## 🔍 진행방식
 
