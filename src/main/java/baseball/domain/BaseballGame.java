@@ -18,7 +18,7 @@ public class BaseballGame {
         Number computerNumber = computer.getNumber();
         Hint playerHint = Hint.createPlayerHint(computerNumber, playerNumber);
         checkEndGame(playerHint);
-        return playerHint.toMessage();
+        return HintMessage.toMessage(playerHint);
     }
 
     public void checkEndGame(Hint hint) {
