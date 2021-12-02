@@ -5,6 +5,7 @@ import static baseball.ErrorMessage.INVALID_INPUT_REQUEST;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -19,7 +20,7 @@ public class Number {
     private final List<Integer> numbers;
 
     private Number(List<Integer> numbers) {
-        this.numbers = numbers;
+        this.numbers = Collections.unmodifiableList(numbers);
     }
 
     public static Number createRandomNumber() {
@@ -75,11 +76,11 @@ public class Number {
         return numbers.get(idx);
     }
 
-    public boolean hasNumber(int number, int idx) {
+    public boolean hasNumberInNumbersIndex(int number, int idx) {
         return numbers.get(idx).equals(number);
     }
 
-    public boolean containsNumber(int number) {
+    public boolean containsNumberInNumbersRange(int number) {
         return numbers.contains(number);
     }
 }

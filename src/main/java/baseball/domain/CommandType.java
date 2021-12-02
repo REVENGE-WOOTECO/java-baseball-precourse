@@ -13,13 +13,9 @@ public enum CommandType {
         this.code = code;
     }
 
-    public String getCode() {
-        return code;
-    }
-
     public static CommandType of(String command) {
         return Arrays.stream(CommandType.values())
-            .filter(v -> v.getCode().equals(command))
+            .filter(v -> v.code.equals(command))
             .findFirst()
             .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.INVALID_INPUT_REQUEST));
     }
