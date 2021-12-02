@@ -76,11 +76,11 @@ public class Number {
         return numbers.get(idx);
     }
 
-    public boolean hasNumber(int number, int idx) {
+    public boolean hasNumberInNumbersIndex(int number, int idx) {
         return numbers.get(idx).equals(number);
     }
 
-    public boolean containsNumber(int number) {
+    public boolean containsNumberInNumbersRange(int number) {
         return numbers.contains(number);
     }
 }

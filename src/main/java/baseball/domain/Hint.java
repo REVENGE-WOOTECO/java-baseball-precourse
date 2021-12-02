@@ -23,11 +23,12 @@ public class Hint {
 
     private void countStrikeAndBall(Number computerNumber, Number playerNumber) {
         for (int idx = 0; idx < playerNumber.getNumbersSize(); idx++) {
-            if (computerNumber.hasNumber(playerNumber.getNumbersValue(idx), idx)) {
+            int number = playerNumber.getNumbersValue(idx);
+            if (computerNumber.hasNumberInNumbersIndex(number, idx)) {
                 strikeCount++;
                 continue;
             }
-            if (computerNumber.containsNumber(playerNumber.getNumbersValue(idx))) {
+            if (computerNumber.containsNumberInNumbersRange(number)) {
                 ballCount++;
             }
         }
