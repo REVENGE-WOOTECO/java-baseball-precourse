@@ -1,5 +1,6 @@
 package baseball;
 
+import VO.InputNumbers;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -9,10 +10,10 @@ public class GameResultTest {
 
     @Test
     public void 스트라이크_테스트() {
-        String allStrike = "123";
-        String twoStrike = "124";
-        String oneStrike = "159";
-        String noStrike = "456";
+        InputNumbers allStrike = new InputNumbers("123");
+        InputNumbers twoStrike = new InputNumbers("124");
+        InputNumbers oneStrike = new InputNumbers("159");
+        InputNumbers noStrike = new InputNumbers("456");
         String answer = "123";
 
         assertThat(gameResult.getStrikeCnt(allStrike, answer)).isEqualTo(3);
@@ -23,10 +24,10 @@ public class GameResultTest {
 
     @Test
     public void 볼_테스트() {
-        String allBall = "312";
-        String twoBall = "932";
-        String oneBall = "981";
-        String noBall = "456";
+        InputNumbers allBall = new InputNumbers("312");
+        InputNumbers twoBall = new InputNumbers("312");
+        InputNumbers oneBall = new InputNumbers("981");
+        InputNumbers noBall = new InputNumbers("456");
         String answer = "123";
 
         assertThat(gameResult.getBallCnt(allBall, answer)).isEqualTo(3);

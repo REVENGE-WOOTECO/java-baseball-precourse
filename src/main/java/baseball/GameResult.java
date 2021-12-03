@@ -1,12 +1,15 @@
 package baseball;
 
+import VO.InputNumbers;
+
 import java.util.HashMap;
 
 public class GameResult {
     private static final int DUP_COUNT = 2;
 
-    public int getStrikeCnt(String input, String answer) {
+    public int getStrikeCnt(InputNumbers inputNumbers, String answer) {
         int strikeCount = 0;
+        String input = inputNumbers.value();
 
         for (int i = 0; i < input.length(); i++) {
             char inputChar = input.charAt(i);
@@ -19,9 +22,10 @@ public class GameResult {
         return strikeCount;
     }
 
-    public int getBallCnt(String input, String answer) {
+    public int getBallCnt(InputNumbers inputNumbers, String answer) {
         HashMap<Character, Integer> ballCountMap = new HashMap<>();
         int ballCount = 0;
+        String input = inputNumbers.value();
 
         for (int i = 0; i < input.length(); i++) {
             char inputChar = input.charAt(i);
