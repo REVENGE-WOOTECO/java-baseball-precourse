@@ -3,8 +3,6 @@ package baseball;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static utils.Constant.DIGIT;
-
 public class NumberGeneratorTest {
 
     NumberGenerator numberGenerator = new NumberGenerator();
@@ -12,6 +10,6 @@ public class NumberGeneratorTest {
     @Test
     public void 세자리의_수가_출력된다() {
         String answer = numberGenerator.numberGenerate();
-        Assertions.assertThat(answer.length()).isEqualTo(DIGIT);
+        Assertions.assertThat(answer.length()).isEqualTo(NumberGenerator.DIGIT);
     }
 }

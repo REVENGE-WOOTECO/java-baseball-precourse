@@ -1,10 +1,11 @@
 package baseball;
 
-import static utils.Constant.ANSWER_COUNT;
-import static utils.Constant.NOTHING_COUNT;
 import static utils.Message.*;
 
 public class MessagePrint {
+    public static final int ANSWER_COUNT = 3;
+    private static final int NOTHING_COUNT = 0;
+
     public void getResultMessage(int strikeCount, int ballCount) {
         String resultMessage = "";
         if (strikeCount == ANSWER_COUNT) {

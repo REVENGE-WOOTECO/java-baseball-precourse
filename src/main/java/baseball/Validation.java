@@ -1,8 +1,11 @@
 package baseball;
 
-import static utils.Constant.*;
+import static baseball.NumberGenerator.DIGIT;
 
 public class Validation {
+    public static final String RESTART = "1";
+    public static final String EXIT = "2";
+
     public boolean validateInputNumber(String input) {
 
         if (!isRightDigit(input)) {

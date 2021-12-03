@@ -1,13 +1,13 @@
 package baseball;
 
-import static utils.Constant.*;
+import static baseball.MessagePrint.ANSWER_COUNT;
 
 public class GameManager {
+    String answer;
     NumberGenerator numberGenerator = new NumberGenerator();
     MessagePrint messagePrint = new MessagePrint();
     UserInput userInput = new UserInput();
     GameResult gameResult = new GameResult();
-    String answer;
 
     public void run() {
         answer = numberGenerator.numberGenerate();
@@ -31,10 +31,10 @@ public class GameManager {
         if (strikeCnt == ANSWER_COUNT) {
             messagePrint.restartRequest();
             String reply = userInput.gameOver();
-            if (reply.equals(RESTART)) {
+            if (reply.equals(Validation.RESTART)) {
                 answer = resetAnswer();
                 return true;
-            } else if (reply.equals(EXIT)) {
+            } else if (reply.equals(Validation.EXIT)) {
                 return false;
             }
         }

@@ -2,9 +2,9 @@ package baseball;
 
 import java.util.HashMap;
 
-import static utils.Constant.DUP_COUNT;
-
 public class GameResult {
+    private static final int DUP_COUNT = 2;
+
     public int getStrikeCnt(String input, String answer) {
         int strikeCount = 0;
 
