@@ -5,11 +5,11 @@ import VO.ReplyNumber;
 import VO.ResultNumbers;
 
 public class GameManager {
+    private final NumberGenerator numberGenerator = new NumberGenerator();
+    private final MessagePrint messagePrint = new MessagePrint();
+    private final UserInput userInput = new UserInput();
+    private final GameResult gameResult = new GameResult();
     String answer;
-    NumberGenerator numberGenerator = new NumberGenerator();
-    MessagePrint messagePrint = new MessagePrint();
-    UserInput userInput = new UserInput();
-    GameResult gameResult = new GameResult();
 
     public void run() {
         answer = numberGenerator.numberGenerate();
