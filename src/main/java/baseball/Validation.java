@@ -1,7 +1,5 @@
 package baseball;
 
-import java.util.HashSet;
-
 import static utils.Constant.*;
 
 public class Validation {
@@ -23,19 +21,11 @@ public class Validation {
     }
 
     public boolean validateContinueNumber(String input) {
-        if (input.equals(RESTART) || input.equals(EXIT)) {
-            return true;
-        } else {
-            return false;
-        }
+        return input.equals(RESTART) || input.equals(EXIT);
     }
 
     public boolean isRightDigit(String input) {
-        if (input.length() != DIGIT) {
-            return false;
-        } else {
-            return true;
-        }
+        return input.length() == DIGIT;
     }
 
     public boolean isNumber(String input) {
@@ -48,15 +38,10 @@ public class Validation {
     }
 
     public boolean isDuplicate(String input) {
-        HashSet<Character> duplicateCheck = new HashSet<>();
+        long count = input.chars()
+                .distinct()
+                .count();
 
-        for (char c : input.toCharArray()) {
-            if (!duplicateCheck.contains(c)){
-                duplicateCheck.add(c);
-            } else {
-                return true;
-            }
-        }
-        return false;
+        return count != input.length();
     }
 }
