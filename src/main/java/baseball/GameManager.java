@@ -2,8 +2,7 @@ package baseball;
 
 import VO.InputNumbers;
 import VO.ReplyNumber;
-
-import static baseball.MessagePrint.ANSWER_COUNT;
+import VO.ResultNumbers;
 
 public class GameManager {
     String answer;
@@ -16,19 +15,20 @@ public class GameManager {
         answer = numberGenerator.numberGenerate();
         int strikeCnt = 0;
         int ballCnt = 0;
-
+        ResultNumbers result;
         do {
             messagePrint.requestInput();
             InputNumbers input = new InputNumbers(userInput.answerInput());
             strikeCnt = gameResult.getStrikeCnt(input, answer);
             ballCnt = gameResult.getBallCnt(input, answer);
-            messagePrint.getResultMessage(strikeCnt, ballCnt);
+            result = new ResultNumbers(strikeCnt, ballCnt);
+            messagePrint.getResultMessage(result);
 
-        } while (requestProgress(strikeCnt));
+        } while (requestProgress(result));
     }
 
-    public boolean requestProgress(int strikeCnt) {
-        if (strikeCnt == ANSWER_COUNT) {
+    public boolean requestProgress(ResultNumbers result) {
+        if (result.isAnswer()) {
             messagePrint.restartRequest();
             ReplyNumber reply = new ReplyNumber(userInput.answerInput());
             if (reply.isRestart()) {
