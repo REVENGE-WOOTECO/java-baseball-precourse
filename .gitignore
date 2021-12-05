@@ -1,6 +1,7 @@
 .DS_Store
 .gradle
 /build/
+<<<<<<< HEAD
 !gradle/wrapper/gradle-wrapper.jar
 /out/
 /target/
@@ -19,3 +20,5 @@ bin/
 *.iws
 *.iml
 *.ipr
+/.gradle/
+/.idea/
