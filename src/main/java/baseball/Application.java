@@ -9,10 +9,10 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Application {
-	private final static String MESSAGE_END_GAME = "개의 숫자를 모두 맞히셨습니다! 게임 종료";
-	private final static String MESSAGE_BALL = "볼";
-	private final static String MESSAGE_STRIKE = "스트라이크";
-	private final static String MESSAGE_NOTHING = "낫싱";
+	private static final String MESSAGE_END_GAME = "개의 숫자를 모두 맞히셨습니다! 게임 종료";
+	private static final String MESSAGE_BALL = "볼";
+	private static final String MESSAGE_STRIKE = "스트라이크";
+	private static final String MESSAGE_NOTHING = "낫싱";
 	private static final String REQUEST_INPUT_NUMBER = "숫자를 입력해주세요: ";
 	private static final String REQUEST_END_OR_RESTART = "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요";
 
