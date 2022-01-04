@@ -53,6 +53,7 @@
   + 자료형을 배열로 의심하게 함
 + [x] -1인 ballCount 예외던지기
   + BallCount 객체를 만들고 생성자에서 예외 던지도록 구현
++ [x] isStartOver -> isNotStartOver 로 변경하여 ==false 제거.
 
 ## 🔍 진행방식
 

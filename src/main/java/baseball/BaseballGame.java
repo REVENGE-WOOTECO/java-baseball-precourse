@@ -23,17 +23,17 @@ public class BaseballGame {
 		while (true) {
 			List<Integer> answerNumber = randomNumber.makeAnswerNumber();
 
-			boolean isAnswer;
+			boolean isNotAnswer;
 			do {
 				int inputNumber = inputNumber();
 
-				isAnswer = compareNumber(answerNumber, inputNumber);
-			} while (isAnswer == false);
+				isNotAnswer = isNotAnswer(answerNumber, inputNumber);
+			} while (isNotAnswer);
 
 			System.out.println(CONDITION_END + MESSAGE_END_GAME);
 
 			String inputStartOver = getInputStartOver();
-			if (isStartOver(inputStartOver) == false) {
+			if (isNotStartOver(inputStartOver)) {
 				break;
 			}
 		}
@@ -50,11 +50,11 @@ public class BaseballGame {
 		return Integer.parseInt(inputNumber);
 	}
 
-	public boolean compareNumber(List<Integer> answerNumber, int inputNumber) {
+	public boolean isNotAnswer(List<Integer> answerNumber, int inputNumber) {
 		String answer = hint(answerNumber, inputNumber);
 		System.out.println(answer);
 
-		return answer.equals(CONDITION_END + MESSAGE_STRIKE);
+		return !answer.equals(CONDITION_END + MESSAGE_STRIKE);
 	}
 
 	public String hint(List<Integer> answerNumber, int inputNumber) {
@@ -87,11 +87,11 @@ public class BaseballGame {
 		return Console.readLine();
 	}
 
-	public boolean isStartOver(String inputNumber) {
+	public boolean isNotStartOver(String inputNumber) {
 		if (inputNumber.equals(COMMAND_RESTART_GAME)) {
-			return true;
-		} else if (inputNumber.equals(COMMAND_END_GAME)) {
 			return false;
+		} else if (inputNumber.equals(COMMAND_END_GAME)) {
+			return true;
 		} else {
 			throw new IllegalArgumentException();
 		}
