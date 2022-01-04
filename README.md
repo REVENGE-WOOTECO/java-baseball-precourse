@@ -45,6 +45,14 @@
 + [x] answer.equale("") -> .isEmpty() 메소드 사용하기
 + [x] 메소드에서 inputNumber를 받을 때 String 이 아니라 int로 받기(버그가능성)
 + [x] inputNumber()메소드 분리하기
++ [ ] 클래스 멤버의 제어자 작성 순서(자바 컨벤션 가이드)
+  + [ ] private final static -> private static final 로 변경
+  + 순서: public protected private abstract default static final transient volatile synchronized native strictfp
++ [ ] 자바 컬렉션 프레임워크는 확장을 위해 인터페이스 타입으로 할당하기!!
++ [ ] hasException 메서드의 inputNumberArray -> inputNumberSet으로 변경
+  + 자료형을 배열로 의심하게 함
++ [ ] -1인 ballCount 예외던지기
+  + BallCount 객체를 만들고 생성자에서 예외 던지도록 구현
 
 ## 🔍 진행방식
 
