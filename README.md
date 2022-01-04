@@ -51,7 +51,7 @@
 + [x] 자바 컬렉션 프레임워크는 확장을 위해 인터페이스 타입으로 할당하기!!
 + [x] hasException 메서드의 inputNumberArray -> inputNumberSet으로 변경
   + 자료형을 배열로 의심하게 함
-+ [ ] -1인 ballCount 예외던지기
++ [x] -1인 ballCount 예외던지기
   + BallCount 객체를 만들고 생성자에서 예외 던지도록 구현
 
 ## 🔍 진행방식
