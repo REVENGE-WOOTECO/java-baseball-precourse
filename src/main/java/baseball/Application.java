@@ -2,6 +2,7 @@ package baseball;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Stream;
 
@@ -77,16 +78,16 @@ public class Application {
 	}
 
 	public boolean hasException(String inputNumber) {
-		TreeSet<Integer> inputNumberArray = new TreeSet<>();
+		Set<Integer> inputNumberSet = new TreeSet<>();
 		char[] inputNumberSplitArray = inputNumber.toCharArray();
 
 		for (char c : inputNumberSplitArray) {
 			if (c >= QUESTION_NUMBER_MIN && c <= QUESTION_NUMBER_MAX) {
-				inputNumberArray.add(Character.getNumericValue(c));
+				inputNumberSet.add(Character.getNumericValue(c));
 			}
 		}
 
-		return inputNumberArray.size() != QUESTION_NUMBER_DIGITS;
+		return inputNumberSet.size() != QUESTION_NUMBER_DIGITS;
 	}
 
 	public boolean compareNumber(List<Integer> answerNumber, int inputNumber) {
