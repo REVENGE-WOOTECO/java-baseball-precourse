@@ -8,35 +8,26 @@ public class BaseballGame {
 
 	private static final String REQUEST_INPUT_NUMBER = "숫자를 입력해주세요: ";
 	private static final String MESSAGE_END_GAME = "개의 숫자를 모두 맞히셨습니다! 게임 종료";
-	private static final String REQUEST_END_OR_RESTART = "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요";
 	private static final String MESSAGE_BALL = "볼";
 	private static final String MESSAGE_STRIKE = "스트라이크";
 	private static final String MESSAGE_NOTHING = "낫싱";
 
-	private static final String COMMAND_RESTART_GAME = "1";
-	private static final String COMMAND_END_GAME = "2";
+
 	private static final int CONDITION_END = 3;
 
 	public void startGame(){
 		RandomNumber randomNumber = new RandomNumber();
 
-		while (true) {
-			List<Integer> answerNumber = randomNumber.makeAnswerNumber();
+		List<Integer> answerNumber = randomNumber.makeAnswerNumber();
 
-			boolean isNotAnswer;
-			do {
-				int inputNumber = inputNumber();
+		boolean isNotAnswer;
+		do {
+			int inputNumber = inputNumber();
 
-				isNotAnswer = isNotAnswer(answerNumber, inputNumber);
-			} while (isNotAnswer);
+			isNotAnswer = isNotAnswer(answerNumber, inputNumber);
+		} while (isNotAnswer);
 
-			System.out.println(CONDITION_END + MESSAGE_END_GAME);
-
-			String inputStartOver = getInputStartOver();
-			if (isNotStartOver(inputStartOver)) {
-				break;
-			}
-		}
+		System.out.println(CONDITION_END + MESSAGE_END_GAME);
 	}
 
 	public int inputNumber() {
@@ -80,20 +71,5 @@ public class BaseballGame {
 		}
 
 		return answer;
-	}
-
-	public String getInputStartOver() {
-		System.out.println(REQUEST_END_OR_RESTART);
-		return Console.readLine();
-	}
-
-	public boolean isNotStartOver(String inputNumber) {
-		if (inputNumber.equals(COMMAND_RESTART_GAME)) {
-			return false;
-		} else if (inputNumber.equals(COMMAND_END_GAME)) {
-			return true;
-		} else {
-			throw new IllegalArgumentException();
-		}
 	}
 }
