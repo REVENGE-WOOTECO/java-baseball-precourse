@@ -22,34 +22,30 @@ public class BaseballGame {
 
 		boolean isNotAnswer;
 		do {
-			int inputNumber = inputNumber();
+			Balls inputBalls = inputNumber();
 
-			isNotAnswer = isNotAnswer(answerNumber, inputNumber);
+			isNotAnswer = isNotAnswer(answerNumber, inputBalls);
 		} while (isNotAnswer);
 
 		System.out.println(CONDITION_END + MESSAGE_END_GAME);
 	}
 
-	public int inputNumber() {
+	public Balls inputNumber() {
 		System.out.print(REQUEST_INPUT_NUMBER);
 		String inputNumber = Console.readLine();
 
-		Validator validator = new Validator(inputNumber);
-
-		validator.handleException();
-
-		return Integer.parseInt(inputNumber);
+		return Balls.of(inputNumber);
 	}
 
-	public boolean isNotAnswer(List<Integer> answerNumber, int inputNumber) {
-		String answer = hint(answerNumber, inputNumber);
+	public boolean isNotAnswer(List<Integer> answerNumber, Balls inputBalls) {
+		String answer = hint(answerNumber, inputBalls);
 		System.out.println(answer);
 
 		return !answer.equals(CONDITION_END + MESSAGE_STRIKE);
 	}
 
-	public String hint(List<Integer> answerNumber, int inputNumber) {
-		Count count = new Count(answerNumber, inputNumber);
+	public String hint(List<Integer> answerNumber, Balls inputBalls) {
+		Count count = new Count(answerNumber, inputBalls);
 
 		int ballCount = count.ballCount();
 		int strikeCount = count.strikeCount();

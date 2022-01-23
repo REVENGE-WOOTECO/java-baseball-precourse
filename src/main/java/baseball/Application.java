@@ -22,9 +22,9 @@ public class Application {
 
 	public static boolean isNotStartOver(String inputNumber) {
 		if (inputNumber.equals(COMMAND_RESTART_GAME)) {
-			return false;
-		} else if (inputNumber.equals(COMMAND_END_GAME)) {
 			return true;
+		} else if (inputNumber.equals(COMMAND_END_GAME)) {
+			return false;
 		} else {
 			throw new IllegalArgumentException();
 		}

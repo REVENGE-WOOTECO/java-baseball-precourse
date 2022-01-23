@@ -5,19 +5,18 @@ import java.util.stream.Stream;
 
 public class Count {
 
-	private final int inputNumber;
+	private final int[] inputNumberArray = new int[3];
 	private final List<Integer> answerNumber;
 
-	public Count(List<Integer> answerNumber, int inputNumber) {
-		this.inputNumber = inputNumber;
-		if(inputNumber == -1){
-			throw new IllegalArgumentException();
-		}
+	public Count(List<Integer> answerNumber, Balls inputBalls) {
+		this.inputNumberArray[0] = inputBalls.getFirstBall(Balls.BallIndex.FIRST).getNumber();
+		this.inputNumberArray[1] = inputBalls.getFirstBall(Balls.BallIndex.SECOND).getNumber();
+		this.inputNumberArray[2] = inputBalls.getFirstBall(Balls.BallIndex.THIRD).getNumber();
+
 		this.answerNumber = answerNumber;
 	}
 
 	public int ballCount() {
-		int[] inputNumberArray = Stream.of(String.valueOf(inputNumber).split("")).mapToInt(Integer::parseInt).toArray();
 		int count = 0;
 
 		for (int j = 0; j < inputNumberArray.length; j++) {
@@ -31,8 +30,6 @@ public class Count {
 	}
 
 	public int strikeCount() {
-		int[] inputNumberArray = Stream.of(String.valueOf(inputNumber).split("")).mapToInt(Integer::parseInt).toArray();
-
 		int count = 0;
 
 		for (int i = 0; i < inputNumberArray.length; i++) {
